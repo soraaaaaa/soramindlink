@@ -1,5 +1,11 @@
 import { createAction, handleActions } from "redux-actions";
 
-const DELETE = "action/DELETE";
+const LIST_DELETE = "action/DELETE";
+const NOTICE = "action/NOTICE";
+const EVENT = "action/EVENT";
 
-export const delete = createAction(DELETE);
+export const listDelete = createAction(LIST_DELETE);
+export const notice = createAction(NOTICE);
+export const event = createAction(EVENT);
+
+const initialState = { url: "board" };
