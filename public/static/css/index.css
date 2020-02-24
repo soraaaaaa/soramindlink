@@ -39,7 +39,6 @@ button{background:none;border:0;}
 button:hover{cursor:pointer;}
 a:focus, button:focus{outline:none;}
 body {-webkit-tap-highlight-color: transparent;}
-#__next{position:relative;}
 
 /*약관 모듈*/
 .area_policy{padding:0 0px 38px 0px;line-height:19px;}

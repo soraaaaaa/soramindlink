@@ -1,5 +1,6 @@
 const AdminListDetail = ({ results }) => {
   const { TIT, REG_DATE, CONTENT } = results.contents.result;
+
   return (
     <div>
       <div className="top">
@@ -22,10 +23,11 @@ const AdminListDetail = ({ results }) => {
             color: #acacbf;
           }
           .content {
-            padding: 40px 24px 0;
-            min-height: 565px;
+            padding: 40px 24px;
+            min-height: 400px;
             box-sizing: border-box;
             border-bottom: 1px solid #e7e7f2;
+            word-break: break-word;
           }
         `}
       </style>

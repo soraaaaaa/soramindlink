@@ -1,6 +1,7 @@
+import React from "react";
 import Link from "next/link";
 
-const Header = () => {
+function Header({ click }) {
   return (
     <>
       <div id="header">
@@ -55,12 +56,12 @@ const Header = () => {
       </div>
       <div id="gnb">
         <ul>
-          <li className="gnb_list">
-            <Link href="/admin/notice">
+          <li className="gnb_list notice">
+            <Link href="/admin/board">
               <a>공지사항</a>
             </Link>
           </li>
-          <li className="gnb_list">
+          <li className="gnb_list event">
             <Link href="/admin/event">
               <a>이벤트</a>
             </Link>
@@ -84,11 +85,17 @@ const Header = () => {
               font-size: 16px;
               padding-left: 25px;
             }
+            .notice {
+              background: ${click == "notice" ? "#f6f6fb" : "#fff"};
+            }
+            .event {
+              background: ${click == "event" ? "#f6f6fb" : "#fff"};
+            }
           `}
         </style>
       </div>
     </>
   );
-};
+}
 
 export default Header;

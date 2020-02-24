@@ -3,9 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Popup from "../components/Popup";
 import { hide } from "../store/modules/popup";
 
-function PopupContainer({ path }) {
+function PopupContainer({ path, url, idNumber }) {
   const state = useSelector(state => state.popup);
-  console.log(state);
 
   const dispatch = useDispatch();
 
@@ -18,6 +17,8 @@ function PopupContainer({ path }) {
       invisibleClick={invisibleClick}
       path={path}
       type={state.type}
+      url={url}
+      idNumber={idNumber}
     />
   );
 }

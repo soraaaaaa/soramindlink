@@ -1,12 +1,11 @@
 import Link from "next/link";
 
-const AdminListItem = ({ lists }) => {
-  const { TIT, REG_DATE, BOARD_ID, EVENT_ID } = lists;
-
+const AdminEventItem = ({ lists }) => {
+  const { TIT, REG_DATE, EVENT_ID } = lists;
   return (
     <>
       <li className="list_item">
-        <Link href={`/admin/board/[id]`} as={`/admin/board/${BOARD_ID}`}>
+        <Link href={`/admin/event/[id]`} as={`/admin/event/${EVENT_ID}`}>
           <a>
             <p className="tit">{TIT}</p>
             <p className="date">{REG_DATE}</p>
@@ -43,4 +42,4 @@ const AdminListItem = ({ lists }) => {
   );
 };
 
-export default AdminListItem;
+export default AdminEventItem;

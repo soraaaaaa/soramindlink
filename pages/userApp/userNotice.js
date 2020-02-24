@@ -31,10 +31,6 @@ const index = () => {
     fetchData();
   }, [currentPage]);
 
-  if (loading) {
-    return 0;
-  }
-
   if (!results) {
     return null;
   }
