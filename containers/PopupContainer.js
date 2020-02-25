@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Popup from "../components/Popup";
 import { hide } from "../store/modules/popup";
 
-function PopupContainer({ path, url, idNumber }) {
+function PopupContainer({ path, url, idNumber, event }) {
   const state = useSelector(state => state.popup);
 
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ function PopupContainer({ path, url, idNumber }) {
       type={state.type}
       url={url}
       idNumber={idNumber}
+      event={event}
     />
   );
 }

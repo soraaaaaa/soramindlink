@@ -11,7 +11,6 @@ const event = () => {
   const [pageSize, setPageSize] = useState(10);
   const [totalPage, setTotalPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(results);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +42,7 @@ const event = () => {
       <Layout>
         <h2 className="content_tit">공지사항</h2>
         <AdminEventList results={results} />
-        <Link href="./write">
+        <Link href="./event/eventWrite">
           <a className="btn_style" url="event">
             새 글 작성
           </a>

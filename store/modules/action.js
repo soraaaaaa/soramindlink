@@ -1,11 +1,18 @@
 import { createAction, handleActions } from "redux-actions";
 
-const LIST_DELETE = "action/DELETE";
-const NOTICE = "action/NOTICE";
-const EVENT = "action/EVENT";
+const WRITE = "action/WRITE";
 
-export const listDelete = createAction(LIST_DELETE);
-export const notice = createAction(NOTICE);
-export const event = createAction(EVENT);
+export const write = createAction(WRITE);
 
-const initialState = { url: "board" };
+const initialState = { content: "" };
+
+const Action = handleActions(
+  {
+    [WRITE]: (state, action) => ({
+      content: "board"
+    })
+  },
+  initialState
+);
+
+export default gnbAction;

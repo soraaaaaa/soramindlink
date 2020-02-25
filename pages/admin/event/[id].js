@@ -13,9 +13,8 @@ const AdNoticeDetail = props => {
   const visibleClick = () => {
     dispatch(deleteList());
   };
+  const { START_DATE, END_DATE, MEDIA_URL, EVENT_ID } = props.contents.result;
 
-  console.log("props", props);
-  const { START_DATE, END_DATE, MEDIA_URL } = props.contents.result;
   return (
     <>
       <Header click="event" />
@@ -26,6 +25,7 @@ const AdNoticeDetail = props => {
           <p>기간</p>
           <div>
             <span>{START_DATE}</span>
+            <span>~</span>
             <span>{END_DATE}</span>
           </div>
         </div>
@@ -38,9 +38,10 @@ const AdNoticeDetail = props => {
         </div>
       </Layout>
       <PopupContainer
-        path={`/admin/edit/${props.contents.result.EVENT_ID}`}
+        path={`/admin/event/edit/${props.contents.result.EVENT_ID}`}
         url="event"
         idNumber={props.contents.result.EVENT_ID}
+        event="/event"
       />
       <style jsx>
         {`

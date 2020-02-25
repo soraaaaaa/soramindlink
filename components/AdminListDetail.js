@@ -1,5 +1,6 @@
 const AdminListDetail = ({ results }) => {
   const { TIT, REG_DATE, CONTENT } = results.contents.result;
+  //const contents = eval(CONTENT);
 
   return (
     <div>
@@ -7,7 +8,10 @@ const AdminListDetail = ({ results }) => {
         <strong className="tit">{TIT}</strong>
         <p className="date">{REG_DATE}</p>
       </div>
-      <div className="content">{CONTENT}</div>
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{ __html: CONTENT }}
+      ></div>
       <style jsx>
         {`
           .top {

@@ -30,6 +30,7 @@ const AdNoticeDetail = props => {
         path={`/admin/edit/${props.contents.result.BOARD_ID}`}
         url="board"
         idNumber={props.contents.result.BOARD_ID}
+        event=""
       />
       <style jsx>
         {`
