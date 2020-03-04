@@ -11,8 +11,9 @@
   "author": "sora",
   "license": "MIT",
   "dependencies": {
-    "antd": "^4.0.0",
+    "antd": "^3.26.12",
     "next": "^8.1.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
