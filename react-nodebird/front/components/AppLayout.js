@@ -38,7 +38,9 @@ const AppLayout = ({ children }) => {
         <Col xs={24} md={12}>
           {children}
         </Col>
-        <Col xs={24} md={6}></Col>
+        <Col xs={24} md={6}>
+          made by sora
+        </Col>
       </Row>
     </>
   );

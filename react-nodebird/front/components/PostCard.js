@@ -24,7 +24,7 @@ const PostCard = ({ post }) => {
   );
 };
 
-PostCard.prototype = {
+PostCard.propTypes = {
   post: PropTypes.shape({
     User: PropTypes.object,
     content: PropTypes.string,
