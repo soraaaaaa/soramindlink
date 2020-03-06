@@ -1,23 +1,9 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
-
-const dummy = {
-  isLoggedIn: true,
-  imagePaths: [],
-  mainPosts: [
-    {
-      User: {
-        id: 1,
-        nickname: "김소라"
-      },
-      content: "첫번째 게시글",
-      img:
-        "https://review-flatform-common.s3.ap-northeast-2.amazonaws.com/user-bbs/KakaoTalk_20200226_115001378_02.png"
-    }
-  ]
-};
+import { useSelector } from "react-redux";
 
 const PostForm = () => {
+  const { imagePaths } = useSelector(state => state.post);
   return (
     <Form encType="multipart/form-data" style={{ margin: "10px 0 20px" }}>
       <Input.TextArea
@@ -32,7 +18,7 @@ const PostForm = () => {
         </Button>
       </div>
       <div>
-        {dummy.imagePaths.map((v, i) => {
+        {imagePaths.map((v, i) => {
           return (
             <div key={v} style={{ display: "inline-block" }}>
               <img

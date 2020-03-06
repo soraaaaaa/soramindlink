@@ -1,28 +1,18 @@
 import React from "react";
 import PostForm from "../components/PostForm";
 import PostCard from "../components/PostCard";
-
-const dummy = {
-  isLoggedIn: true,
-  imagePaths: [],
-  mainPosts: [
-    {
-      User: {
-        id: 1,
-        nickname: "김소라"
-      },
-      content: "첫번째 게시글",
-      img:
-        "https://review-flatform-common.s3.ap-northeast-2.amazonaws.com/user-bbs/KakaoTalk_20200226_115001378_02.png"
-    }
-  ]
-};
+import { useSelector } from "react-redux";
+//import { loginAction } from "./reducers/user";
 
 const Home = () => {
+  const { isLoggedIn, user } = useSelector(state => state.user);
+  console.log("user", user);
+  const { mainPosts } = useSelector(state => state.post);
+
   return (
     <div>
-      {dummy.isLoggedIn && <PostForm />}
-      {dummy.mainPosts.map(c => {
+      {isLoggedIn && <PostForm />}
+      {mainPosts.map(c => {
         return <PostCard key={c} post={c} />;
       })}
     </div>
