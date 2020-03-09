@@ -3,7 +3,7 @@ import { Input, Button, Form } from "antd";
 import Link from "next/link";
 import { useInput } from "../pages/signup";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../pages/reducers/user";
+import { loginAction } from "../reducers/user";
 
 const LoginForm = () => {
   const [id, onChangeId] = useInput("");
