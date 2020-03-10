@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const { isLoggedIn, user } = useSelector(state => state.user);
-  console.log("user", user);
   const { mainPosts } = useSelector(state => state.post);
 
   return (

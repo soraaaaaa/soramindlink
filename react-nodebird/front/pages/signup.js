@@ -1,7 +1,15 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Form, Input, Checkbox, Button } from "antd";
-import { useDispatch } from "react-redux";
-import { signUpAction } from "../reducers/user";
+import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import Router from "next/router";
+import { SIGN_UP_REQUEST } from "../reducers/user";
+
+const TextInput = ({ value }) => <div>{value}</div>;
+
+TextInput.prototypes = {
+  value: PropTypes.string
+};
 
 export const useInput = (initValue = null) => {
   const [value, setter] = useState(initValue);
@@ -22,6 +30,14 @@ const Signup = () => {
   const [password, onChangePassword] = useInput("");
 
   const dispatch = useDispatch();
+  const { isSigningUp, me } = useSelector(state => state.user);
+
+  useEffect(() => {
+    if (me) {
+      alert("로그인이 되었습니다. 메인페이지로 이동합니다.");
+      Router.push("/");
+    }
+  }, [me && me.id]);
 
   const onSubmit = useCallback(
     e => {
@@ -32,7 +48,14 @@ const Signup = () => {
       if (!term) {
         return setTermError(true);
       }
-      dispatch(signUpAction({ id, password, nick }));
+      dispatch({
+        type: SIGN_UP_REQUEST,
+        data: {
+          id,
+          password,
+          nick
+        }
+      });
     },
     [password, passwordCheck, term]
   );
@@ -102,7 +125,7 @@ const Signup = () => {
           )}
         </div>
         <div style={{ marginTop: 10 }}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={isSigningUp}>
             가입하기
           </Button>
         </div>

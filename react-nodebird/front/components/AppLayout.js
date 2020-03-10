@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 const AppLayout = ({ children }) => {
   const { isLoggedIn } = useSelector(state => state.user);
-  console.log(isLoggedIn);
   return (
     <>
       <Menu mode="horizontal">
