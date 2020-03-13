@@ -53,6 +53,7 @@ export const REMOVE_FOLLOWER_SUCCESS = "REMOVE_FOLLOWER_SUCCESS";
 export const REMOVE_FOLLOWER_FAILURE = "REMOVE_FOLLOWER_FAILURE";
 
 export const ADD_POST_TO_ME = "ADD_POST_TO_ME";
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case LOG_IN_REQUEST: {
@@ -90,9 +91,9 @@ export default (state = initialState, action) => {
     case SIGN_UP_REQUEST: {
       return {
         ...state,
-        isSigningUp: true,
         isSignedUp: false,
-        signUpErrorReason: ""
+        isSigningUp: true,
+        signUpErrorReson: ""
       };
     }
     case SIGN_UP_SUCCESS: {
@@ -106,13 +107,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isSigningUp: false,
-        signUpErrorReason: action.error
+        signUpErrorReson: action.error
       };
     }
     default: {
-      return {
-        ...state
-      };
+      return { ...state };
     }
   }
 };

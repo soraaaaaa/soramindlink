@@ -125,9 +125,9 @@ export default (state = initailState, action) => {
         v => v.id === action.data.postId
       );
       const post = state.mainPosts[postIndex];
-      const Commnets = [...post.Comments, dummyComment];
+      const Comments = [...post.Comments, dummyComment];
       const mainPosts = [...state.mainPosts];
-      mainPosts[postIndex] = { ...post, Commnets };
+      mainPosts[postIndex] = { ...post, Comments };
       return {
         ...state,
         isAddingComment: false,

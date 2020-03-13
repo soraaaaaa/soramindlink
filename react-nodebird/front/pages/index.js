@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 //import { loginAction } from "./reducers/user";
 
 const Home = () => {
-  const { isLoggedIn, user } = useSelector(state => state.user);
+  const { isLoggedIn } = useSelector(state => state.user);
   const { mainPosts } = useSelector(state => state.post);
 
   return (
