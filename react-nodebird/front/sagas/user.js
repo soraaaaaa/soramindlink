@@ -8,15 +8,15 @@ import {
   SIGN_UP_FAILURE
 } from "../reducers/user";
 import axios from "axios";
+axios.defaults.baseURL = 'http://localhost:3065/api';
 
-function loginAPI() {
-  return axios.post("/login");
+function loginAPI(loginData) {
+  return axios.post("/user/login",loginData);
 }
 
-function* login() {
+function* login(action) {
   try {
-    //yield call(loginAPI);
-    yield delay(2000);
+    yield call(loginAPI,action.data);
     yield put({
       type: LOG_IN_SUCCESS
     });
@@ -32,15 +32,15 @@ function* watchLogin() {
   yield takeEvery(LOG_IN_REQUEST, login);
 }
 
-function signUpAPI() {
+function signUpAPI(signUpData) {
   // 서버에 요청을 보내는 부분
-  return axios.post("/login");
+  return axios.post("/user/",signUpData);
 }
 
-function* signUp() {
+function* signUp(action) {
   try {
     //yield call(signUpAPI);
-    yield delay(2000);
+    yield call(signUpAPI,action.data);
     yield put({
       type: SIGN_UP_SUCCESS
     });
